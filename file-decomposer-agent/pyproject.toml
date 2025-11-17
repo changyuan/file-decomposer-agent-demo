@@ -1,0 +1,88 @@
+[project]
+name = "file-decomposer-agent"
+version = "1.0.0"
+description = "基于 LangChain v1.0 和 deepagents 框架的大文件分解和理解系统"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "AI Assistant", email = "assistant@example.com"}
+]
+license = {text = "MIT"}
+keywords = ["langchain", "file-processing", "ai", "agents", "document-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    # LangChain 核心
+    "langchain>=0.2.0",
+    "langchain-core>=0.2.0",
+    "langchain-community>=0.2.0",
+    "langchain-text-splitters>=0.2.0",
+
+    # 文档处理
+    "pypdf>=3.0.0",
+    "beautifulsoup4>=4.12.0",
+    "html5lib>=1.1",
+
+    # 向量存储和嵌入
+    "faiss-cpu>=1.7.0",
+    "langchain-openai>=0.1.0",
+
+    # 数据处理
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+
+    # 工具和实用程序
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.20.0",
+]
+
+[project.scripts]
+file-decomposer = "file_decomposer_agent:main"
+demo-decomposition = "demo_file_decomposition:main"
+quickstart = "quickstart:main"
+
+[project.urls]
+Homepage = "https://github.com/example/file-decomposer-agent"
+Documentation = "https://github.com/example/file-decomposer-agent#readme"
+Repository = "https://github.com/example/file-decomposer-agent.git"
+Issues = "https://github.com/example/file-decomposer-agent/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
